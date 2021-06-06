@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.mycompany.model.Image" table="image">
+        <id name="imageId" type="long" >
+            <column name="imageId"/>
+            <generator class="native"/>
+        </id>
+        <property name="fileName" column="fileName" type="string"/>
+        <property name="path" column="path" type="string"/>
+<!--        <property name="data" column="data" type="binary"/>-->
+        <many-to-one name="post" column="postId" class="com.mycompany.model.Post" not-null="true"/>
+    </class>
+</hibernate-mapping>
